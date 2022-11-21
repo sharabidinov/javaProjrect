@@ -1,2 +1,5 @@
 # javaProjrect
-Java project OOP 
+Java project OOP
+
+Abdurahman Dawoud<br />
+Alymbek Sharabidinov
