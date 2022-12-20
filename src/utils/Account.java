@@ -18,11 +18,11 @@ public class Account {
         }
     }
 
-    public static Boolean isExist(String name) throws IOException, ParseException {
+    public static Boolean isExist(String name, String role) throws IOException, ParseException {
         for (Object o : accounts) {
             JSONObject account = (JSONObject) o;
 
-            if (account.get("name").equals(name)) {
+            if (account.get("name").equals(name) && account.get("role").equals(role)) {
                 return Boolean.TRUE;
             }
 
@@ -33,7 +33,7 @@ public class Account {
 
     public static void CreateAccount(String name, String password, String role) throws ParseException, IOException {
 
-        if (isExist(name)) {
+        if (isExist(name, role)) {
             System.out.println("This account already exists please use another name");
             System.exit(0);
         }

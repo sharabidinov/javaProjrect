@@ -6,8 +6,8 @@ import utils.Account;
 import java.io.IOException;
 
 public class SignIn {
-    public static void signIn(String name, String password) throws IOException, ParseException {
-        if (!Account.isExist(name)) {
+    public static void signIn(String name, String password, String role) throws IOException, ParseException {
+        if (!Account.isExist(name, role)) {
             System.out.println("Account not found, please provide correct credentials");
             System.exit(0);
         }

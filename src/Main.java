@@ -63,7 +63,10 @@ public class Main {
         System.out.print("Enter your password: ");
         String password = input.next();
 
-        SignIn.signIn(name, password);
+        System.out.print("Enter your role: ");
+        String role = input.next();
+
+        SignIn.signIn(name, password, role);
 
     }
 }
