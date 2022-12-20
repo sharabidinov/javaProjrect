@@ -50,7 +50,10 @@ public class Main {
         System.out.print("Enter your password: ");
         String password = input.next();
 
-        SignUp.create_account(name, password);
+        System.out.print("Enter your role: ");
+        String role = input.next();
+
+        SignUp.create_account(name, password, role);
     }
 
     private static void signInAccount(@NotNull Scanner input) throws IOException, ParseException {

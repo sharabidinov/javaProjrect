@@ -1,6 +1,5 @@
 package utils;
 
-import org.jetbrains.annotations.NotNull;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -32,14 +31,14 @@ public class Account {
         return Boolean.FALSE;
     }
 
-    public static void CreateAccount(String name, String password) throws ParseException, IOException {
+    public static void CreateAccount(String name, String password, String role) throws ParseException, IOException {
 
         if (isExist(name)) {
             System.out.println("This account already exists please use another name");
             System.exit(0);
         }
 
-        validatePassword(password);
+
 
         // create new json object to save the account info
         JSONObject accountJsonObject = new JSONObject();
@@ -47,23 +46,13 @@ public class Account {
         // assign name and password to the account json object
         accountJsonObject.put("name", name);
         accountJsonObject.put("password", password);
+        accountJsonObject.put("role", role);
 
         // add new account to the existence accounts
         accounts.add(accountJsonObject);
 
         FileUtils.WriteJsonFile(filePath, accounts);
-    }
-
-    public static Boolean validatePassword(@NotNull String pass) {
-        if (pass.length() < 8) {
-            System.out.println("Password can not be less than 8 characters");
-            return Boolean.FALSE;
-
-        } else if (!Character.isUpperCase(pass.charAt(0))) {
-            System.out.println("Password should start with uppercase letter");
-            return Boolean.FALSE;
-        }
-        return Boolean.TRUE;
+        System.out.println("Account successfully created!");
     }
 
     public static Boolean checkPassword(String name, String password) {

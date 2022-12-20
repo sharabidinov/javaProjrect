@@ -6,8 +6,8 @@ import utils.Account;
 import java.io.IOException;
 
 public class SignUp {
-    public static void create_account(String name, String password) throws IOException, ParseException {
-        Account.CreateAccount(name, password);
+    public static void create_account(String name, String password, String role) throws IOException, ParseException {
+        Account.CreateAccount(name, password, role);
     }
 }
 
