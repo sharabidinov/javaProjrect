@@ -1,10 +1,13 @@
-package auth;
+package src.auth;
 
 import org.json.simple.parser.ParseException;
 import roles.SalesMan;
-import utils.Account;
+import src.roles.DeliveryMan;
+import src.roles.Provider;
+import src.utils.Account;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class SignIn {
     public static void signIn(String name, String password, String role) throws IOException, ParseException {
@@ -18,7 +21,16 @@ public class SignIn {
             System.exit(0);
         }
         System.out.println("Welcome, " + name);
-        SalesMan salesman = new SalesMan(name, role);
-        salesman.chooseAction();
+        if (Objects.equals(role, "salesman")) {
+            SalesMan salesman = new SalesMan(name, role);
+            salesman.chooseAction();
+        } else if (Objects.equals(role, "provider")) {
+            Provider provider = new Provider(name, role);
+            provider.chooseAction();
+        } else {
+            DeliveryMan delivery = new DeliveryMan(name, role);
+            delivery.chooseAction();
+        }
+
     }
 }

@@ -1,7 +1,7 @@
-package auth;
+package src.auth;
 
 import org.json.simple.parser.ParseException;
-import utils.Account;
+import src.utils.Account;
 
 import java.io.IOException;
 

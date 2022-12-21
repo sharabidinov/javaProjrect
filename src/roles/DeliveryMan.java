@@ -1,4 +1,4 @@
-package roles;
+package src.roles;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -57,6 +57,9 @@ public class DeliveryMan {
                 System.exit(0);
                 break;
         }
+    }
+
+    private void amountOfDeliveredprod() {
     }
 
 

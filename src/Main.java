@@ -1,6 +1,5 @@
-import auth.SignIn;
-import auth.SignUp;
-import org.jetbrains.annotations.NotNull;
+import src.auth.SignIn;
+import src.auth.SignUp;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
@@ -23,7 +22,7 @@ public class Main {
 
     }
 
-    private static int authChoice(@NotNull Scanner input) {
+    private static int authChoice(Scanner input) {
         System.out.println("1: Sign up");
         System.out.println("2: Sign in");
 
@@ -43,7 +42,7 @@ public class Main {
         return choice;
     }
 
-    private static void signUpNewAccount(@NotNull Scanner input) throws ParseException, IOException {
+    private static void signUpNewAccount(Scanner input) throws ParseException, IOException {
         System.out.print("Enter your name: ");
         String name = input.next();
 
@@ -56,7 +55,7 @@ public class Main {
         SignUp.create_account(name, password, role);
     }
 
-    private static void signInAccount(@NotNull Scanner input) throws IOException, ParseException {
+    private static void signInAccount(Scanner input) throws IOException, ParseException {
         System.out.print("Enter your name: ");
         String name = input.next();
 

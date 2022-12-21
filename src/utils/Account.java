@@ -1,4 +1,4 @@
-package utils;
+package src.utils;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -12,7 +12,7 @@ public class Account {
 
     static {
         try {
-            accounts = FileUtils.ReadJsonFile(filePath);
+            accounts = utils.FileUtils.ReadJsonFile(filePath);
         } catch (ParseException | IOException e) {
             throw new RuntimeException(e);
         }
@@ -38,8 +38,6 @@ public class Account {
             System.exit(0);
         }
 
-
-
         // create new json object to save the account info
         JSONObject accountJsonObject = new JSONObject();
 
@@ -51,7 +49,7 @@ public class Account {
         // add new account to the existence accounts
         accounts.add(accountJsonObject);
 
-        FileUtils.WriteJsonFile(filePath, accounts);
+        utils.FileUtils.WriteJsonFile(filePath, accounts);
         System.out.println("Account successfully created!");
     }
 
