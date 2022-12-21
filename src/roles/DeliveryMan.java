@@ -7,6 +7,14 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class DeliveryMan {
+    public static void main(String[] args) {
+        DeliveryMan deliv = new DeliveryMan("Zhasmin", "delivery");
+        try {
+            deliv.chooseAction();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     Scanner sc = new Scanner(System.in);
 
@@ -25,7 +33,7 @@ public class DeliveryMan {
         System.out.println("Please choose the menu number to work with the program, if finished, then enter 7:");
         System.out.println("1: Show a list of products for delivery");
         System.out.println("2: Show delivered orders");
-        System.out.println("3: Show the amount of delivered goods");
+        System.out.println("3: Show the amount of delivered products");
         System.out.println("4: Show the number of products ordered");
         System.out.println("5: Show my income");
         System.out.println("6: Exit");
@@ -41,6 +49,10 @@ public class DeliveryMan {
                 System.out.println("*".repeat(50));
                 chooseAction();
                 break;
+            case 3:
+                amountOfDeliveredprod();
+                System.out.println("*".repeat(50));
+                chooseAction();
             case 6:
                 System.exit(0);
                 break;
@@ -61,7 +73,7 @@ public class DeliveryMan {
         }
     }
 
-    private void delivered() throws IOException {
+    public void delivered() throws IOException {
         System.out.println("Delivered orders: ");
         BufferedReader br = new BufferedReader(new BufferedReader(new FileReader(file2)));
         for (String line; (line = br.readLine()) != null; ) {
