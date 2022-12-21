@@ -5,14 +5,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SalesMan {
-//    public static void main(String[] args) throws IOException {
-//        SalesMan user = new SalesMan("Alymbek", "salesman");
-//        user.chooseAction();
-//    }
-
     Scanner sc = new Scanner(System.in);
 
-    String name, role;
+    public String name;
+    public String role;
     private static final String file = System.getProperty("user.dir") + "/src/data/sale.txt";
     private static final String file2 = System.getProperty("user.dir") + "/src/data/solt.txt";
     private static final String file3 = System.getProperty("user.dir") + "/src/data/products_for_order.txt";
@@ -24,7 +20,7 @@ public class SalesMan {
     }
 
     public void chooseAction() throws IOException {
-        System.out.println("Please choose the menu number to work with the program, if finished, then dial 6:");
+        System.out.println("Please choose the menu number to work with the program, if finished, then enter 6:");
         System.out.println("1: Show the entire list of products for sale");
         System.out.println("2: Search for a product");
         System.out.println("3: Show a sales report");
@@ -136,7 +132,6 @@ public class SalesMan {
         products.remove(order);
         try {
             FileWriter fw = new FileWriter(file4);
-//            fw.append(products + "\n");
             for (String i : products) {
                 fw.append(i + "\n");
             }
