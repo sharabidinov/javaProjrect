@@ -1,6 +1,7 @@
 package auth;
 
 import org.json.simple.parser.ParseException;
+import roles.SalesMan;
 import utils.Account;
 
 import java.io.IOException;
@@ -16,8 +17,8 @@ public class SignIn {
             System.out.println("Name or Password not correct");
             System.exit(0);
         }
-
         System.out.println("Welcome, " + name);
-
+        SalesMan salesman = new SalesMan(name, role);
+        salesman.chooseAction();
     }
 }
